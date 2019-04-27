@@ -1,0 +1,33 @@
+
+<h1>Lista de Usuarios</h1>
+<%= link_to "Crear Usuario", usuarios_new_path %>
+<table>
+
+	<tr>
+		<thead>
+			<th> </th>
+			<th>Nombre</th>
+			<th>Apellidos</th>
+			<th>Correo</th>
+			<th>Direccion</th>
+			<th>Telefono</th>
+		</thead>
+	</tr>
+
+		<% @usuarios.each do |usuario| %>
+	<tr>
+		<th> </th>
+		<td><%= usuario.name%></td> 
+		<td><%= usuario.apellidos%></td>
+		<td><%= usuario.correo%></td>
+		<td><%= usuario.direccion%></td>
+		<td><%= usuario.telefono%></td>
+		<td>
+			<%= link_to "mostrar", edit_usuario_path(usuario) %>
+			<%= link_to "Editar", edit_usuario_path(usuario) %>
+			<%= link_to "Eliminar", usuario, method: :delete, data: { confirm: "Estas seguro eliminar este usuario?"} %>
+
+		</td>
+	</tr>
+	<% end %>
+</table>
